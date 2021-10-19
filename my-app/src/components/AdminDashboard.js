@@ -8,7 +8,7 @@ const AdminDashboard=()=>{
   useEffect(() => {
     async function fetchData() {
       try {
-        const requestUrl = "http://capstoneeee.herokuapp.com/api/order";
+        const requestUrl = "https://capstoneeee.herokuapp.com/api/order";
         const res = await fetch(requestUrl);
         const resJson = await res.json();
         setLists(resJson.data);
