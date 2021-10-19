@@ -20,7 +20,7 @@ const SignIn =(props) =>{
      axios.post("http://capstoneeee.herokuapp.com/api/auth/signin", {email: user, password : pswd})
         .then(res =>{
           // setLoading(false);
-           setUserSession(res.data.accessToken, res.data.username, res.data.address,res.data.mobile, res.data.id,res.data.roles[0])
+           //setUserSession(res.data.accessToken, res.data.username, res.data.address,res.data.mobile, res.data.id,res.data.roles[0])
            props.history.push('/dashboard')
             //alert(res.data.username)
         }).catch(err =>{
