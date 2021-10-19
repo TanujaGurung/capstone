@@ -8,10 +8,7 @@ import {getUser,removeUserSession, setUserSession } from "../utils/Common";
 const Navbar=(props)=> {
 
   // const isLogged = false;
-const [isLogged, setIsLogged] = useState(false);
-if(!props.isAuth == null ){
-  setIsLogged(true);
-}
+  const user = getUser();
 
 // setIsLogged(false)
   // useEffect(() => {
@@ -54,7 +51,7 @@ if(!props.isAuth == null ){
              
               <li><Link to="/aboutus">About Us</Link></li> 
               <li><Link to="/contactus">Contact Us</Link></li>
-              {isLogged ? <li><Link to="/signout" onClick={logout}>Sign Out</Link></li> : <li><Link to="/signin" >Sign In</Link></li>}
+              {user !== null ? <li><Link to="/signout" onClick={logout}>Sign Out</Link></li> : <li><Link to="/signin" >Sign In</Link></li>}
        
               
             </ul>

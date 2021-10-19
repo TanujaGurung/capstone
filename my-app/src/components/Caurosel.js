@@ -19,26 +19,26 @@ const Caurosel =() =>{
           <div className="carousel-inner">
       
             <div className="item active">
-              <img src ={img1} alt="nepal"  style={{width: '100%'},{height: '50%'}}/>
+              <img src ={img1} alt="teaching"  style={{width: '100%'},{height: '50%'}}/>
               <div className="carousel-caption">
-                <h2>Nepal</h2>
-                <p>My origin</p>
+                <h2>Imformal teaching</h2>
+                <p>@smile Foundation</p>
               </div>
             </div>
       
             <div className="item">
-              <img src ={img2} alt="hyderabad" />
+              <img src ={img2} alt="aged" />
               <div className="carousel-caption">
-                <h2>Hyderabad</h2>
-                <p>My Hometown</p>
+                <h2>Reading Books</h2>
+                <p>@myhome ngo</p>
               </div>
             </div>
           
             <div className="item">
-              <img src ={img3} alt="coonoor" style={{width: '100%'}} />
+              <img src ={img3} alt="smilies" style={{width: '100%'}} />
               <div className="carousel-caption">
-                <h2>Coonoor</h2>
-                <p>Currently residing</p>
+                <h2>Smiling Kids</h2>
+                <p>@Nehru orphanage</p>
               </div>
             </div>
         
