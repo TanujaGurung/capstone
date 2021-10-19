@@ -26,11 +26,11 @@ const SignIn =(props) =>{
         }).catch(err =>{
            // setLoading(false);
             //setErr(err.message)
-            //if(err.response.status === 401 || err.response.status === 400){
-              //setErr(err.response.data.message);}
-              //  else {
-                //    setErr("user or password is wrong..kindly try again..")
-               //  }
+            if(err.response.status === 401 || err.response.status === 400){
+              setErr(err.response.data.message);}
+                else {
+                    setErr("user or password is wrong..kindly try again..")
+                 }
             
             //console.log(err)
           alert(err)
