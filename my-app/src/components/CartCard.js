@@ -10,7 +10,7 @@ export default function Cartcard(props) {
     async function fetchCart() {
       try {
         const requestUrl =
-          "http://capstoneeee.herokuapp.com/api/Cart/" + Ngo_id;
+          "https://capstoneeee.herokuapp.com/api/Cart/" + Ngo_id;
         const res = await fetch(requestUrl);
         const resJson = await res.json();
         setCart(resJson.data.cart);
@@ -31,7 +31,7 @@ export default function Cartcard(props) {
     console.log(id);
     try {
       const res = await fetch(
-        "http://capstoneeee.herokuapp.com/api/removeCart/" + Ngo_id,
+        "https://capstoneeee.herokuapp.com/api/removeCart/" + Ngo_id,
         {
           method: "put",
           headers: {
@@ -52,7 +52,7 @@ export default function Cartcard(props) {
   async function handleOrder() {
     try {
       const res = await fetch(
-        "http://capstoneeee.herokuapp.com/api/order/" + Ngo_id,
+        "https://capstoneeee.herokuapp.com/api/order/" + Ngo_id,
         {
           method: "post",
           headers: {

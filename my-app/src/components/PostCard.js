@@ -23,7 +23,7 @@ const PostCard=(props) =>{
       
       }  
       if(id !== null){
-        const  apiUrl = " http://capstoneeee.herokuapp.com/api/addCart/" + Ngo_id;
+        const  apiUrl = " https://capstoneeee.herokuapp.com/api/addCart/" + Ngo_id;
         fetch(apiUrl, posts)
         .then(res => {
           console.log(res);
@@ -43,7 +43,7 @@ const PostCard=(props) =>{
     async function fetchData() {
       
         try {
-            const requestUrl = 'http://capstoneeee.herokuapp.com/api/user/' + postedBy;
+            const requestUrl = 'https://capstoneeee.herokuapp.com/api/user/' + postedBy;
             const res = await fetch(requestUrl);
             const resJson = await res.json();
             setUser(resJson.data.username);

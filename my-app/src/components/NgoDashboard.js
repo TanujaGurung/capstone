@@ -12,7 +12,7 @@ const NgoDashboard = (props) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const requestUrl = "http://capstoneeee.herokuapp.com/api/DonationPost";
+        const requestUrl = "https://capstoneeee.herokuapp.com/api/DonationPost";
         const res = await fetch(requestUrl);
         const resJson = await res.json();
         setList(resJson.data);

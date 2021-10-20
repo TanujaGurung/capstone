@@ -52,7 +52,7 @@ export default class Upload extends Component {
           
           }  
           if(this.state.title && this.state.img && this.state.description){
-            const  apiUrl = "http://capstoneeee.herokuapp.com/api/DonationPost/" + this.state.id;
+            const  apiUrl = "https://capstoneeee.herokuapp.com/api/DonationPost/" + this.state.id;
             fetch(apiUrl, posts)
             .then(res => {
               //console.log(res);

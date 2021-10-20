@@ -26,7 +26,7 @@ const SignUp = (props) => {
     const handleSubmit = () => {
      // console.log(userRegistration);
       //alert(userRegistration.username)
-      axios.post("http://capstoneeee.herokuapp.com/api/auth/signup", userRegistration)
+      axios.post("https://capstoneeee.herokuapp.com/api/auth/signup", userRegistration)
       .then(res =>{
            alert(res);
         // setUserSession(res.data.token, res.data.username)

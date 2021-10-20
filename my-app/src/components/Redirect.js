@@ -10,3 +10,4 @@ const Redirect =() =>{
       </div>
     )
 }
+export default Redirect;
