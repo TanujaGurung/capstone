@@ -24,7 +24,7 @@ const Dashboard = (props) =>{
     
     
    
-    const apiUrl = "http://capstoneeee.herokuapp.com/api";
+    const apiUrl = "https://capstoneeee.herokuapp.com/api";
     const handleLogout =( ) =>{
         removeUserSession();
         props.history.push("/signin")
@@ -33,7 +33,7 @@ const Dashboard = (props) =>{
         async function fetchData() {
           
             try {
-                const requestUrl = 'http://capstoneeee.herokuapp.com/api/user/' + id;
+                const requestUrl = 'https://capstoneeee.herokuapp.com/api/user/' + id;
                 const res = await fetch(requestUrl);
                 const resJson = await res.json();
                 setRole(resJson.data.roles[0]);
