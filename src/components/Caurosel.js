@@ -20,17 +20,17 @@ const Caurosel =() =>{
           <div className="carousel-inner">
       
             <div className="item active">
-              <img className="img-responsive" src ={img1} alt="teaching" style={{width: '100%' , height : "400px"}}/>
+              <img className="img-responsive" src ={img1} alt="teaching" style={{width: '100%' }}/>
               
             </div>
       
             <div className="item">
-              <img className="img-responsive" src ={img2} alt="aged" style={{width: '100%',height : "400px"}}/>
+              <img className="img-responsive" src ={img2} alt="aged" style={{width: '100%'}}/>
               
             </div>
           
             <div className="item">
-              <img className="img-responsive" src ={img3} alt="smilies" style={{width: '100%',height : "400px"}} />
+              <img className="img-responsive" src ={img3} alt="smilies" style={{width: '100%'}} />
               
             </div>
         
