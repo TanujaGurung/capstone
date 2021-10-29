@@ -1,42 +1,64 @@
-export  const getUser =() =>{
- const userStr= sessionStorage.getItem("user")
- if(userStr)
-{return  JSON.parse(userStr);} 
- else
- {return null;}
+// export  const getUserNewTab =() =>{
+//  const userStr1= localStorage.getItem("user1")
+//  if(userStr1)
+// {return  JSON.parse(userStr1);} 
+//  else
+//  {return null;}
   
-}
+// }
+
+export  const getUser =() =>{
+    const userStr=localStorage.getItem("user")
+    if(userStr)
+   {return  JSON.parse(userStr);} 
+    else
+    {return null;}
+     
+   }
 
 export const getToken =() =>{
-    return sessionStorage.getItem("token") || null;
+    return localStorage.getItem("token") || null;
 }
-export const setUserSession =(token, user,address,mobile,id,roles) =>{
-    sessionStorage.setItem("token" ,token);
-    sessionStorage.setItem("id" ,id);
-    sessionStorage.setItem("mobile" ,mobile);
-    sessionStorage.setItem("address", JSON.stringify(address));
-    sessionStorage.setItem("user", JSON.stringify(user));
-    sessionStorage.setItem("roles", JSON.stringify(roles));
 
+export const getEmail =() =>{
+    return localStorage.getItem("email") || null;
+}
+export const setUserSession =(token, user,address,mobile,id,roles,email) =>{
+    localStorage.setItem("token" ,token);
+    localStorage.setItem("id" ,id);
+    localStorage.setItem("mobile" ,mobile);
+    localStorage.setItem("address", JSON.stringify(address));
+    localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("email",email);
+    localStorage.setItem("roles", JSON.stringify(roles));
+   
 }
 export const getMobile =() =>{
-    return sessionStorage.getItem("mobile") || null;
+    return localStorage.getItem("mobile") || null;
 }
 export const getAddress =() =>{
-    return sessionStorage.getItem("address") || null;
+    return localStorage.getItem("address") || null;
 }
 export const getId =() =>{
-    return sessionStorage.getItem("id") || null;
+    return localStorage.getItem("id") || null;
 }
-export const getRoles =() =>{
-    return sessionStorage.getItem("roles") || null;
-}
+export  const getRoles =() =>{
+    const rolesStr=localStorage.getItem("roles")
+    if(rolesStr === "ROLE_NGO")
+   {return  JSON.parse(rolesStr);} 
+    else
+    {return null;}
+     
+   }
+
 
 export const removeUserSession=() =>{
-sessionStorage.removeItem("token");
-sessionStorage.removeItem("user");
-sessionStorage.removeItem("id");
-sessionStorage.removeItem("roles");
-sessionStorage.removeItem("mobile");
-sessionStorage.removeItem("address");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+localStorage.removeItem("email");
+localStorage.removeItem("id");
+localStorage.removeItem("roles");
+localStorage.removeItem("mobile");
+localStorage.removeItem("address");
+localStorage.removeItem("user1");
 }

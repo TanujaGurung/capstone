@@ -1,3 +1,4 @@
+
 import React, { useState,useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import {getUser,removeUserSession, setUserSession } from "../utils/Common";
@@ -7,10 +8,6 @@ import {getUser,removeUserSession, setUserSession } from "../utils/Common";
 
 const Navbar=(props)=> {
 
-  // const isLogged = false;
-  const user = getUser();
-
-// setIsLogged(false)
   // useEffect(() => {
   //   { /*
   //       setInterval was used in order to refresh the page constantly
@@ -27,11 +24,12 @@ const Navbar=(props)=> {
   //          setIsLogged(false)
   //           }, [])
   //   }, 5000);
-    const logout = () => {
-     // setIsLogged(false);
-      return removeUserSession();
+  //   const logout = () => {
+  //    // setIsLogged(false);
+  //    setLoggedIn(!loggedIn);
+  //    removeUserSession();
      
-  }
+  // }
     
         return (
             <React.Fragment>
@@ -51,7 +49,8 @@ const Navbar=(props)=> {
              
               <li><Link to="/aboutus">About Us</Link></li> 
               <li><Link to="/contactus">Contact Us</Link></li>
-              {user !== null ? <li><Link to="/signout" onClick={logout}>Sign Out</Link></li> : <li><Link to="/signin" >Sign In</Link></li>}
+              <li><Link to="/donate">Donate</Link></li>
+              {props.loggedIn ? <li><Link to="/signout" onClick={props.logout}>Sign Out</Link></li> : <li><Link to="/signin" onClick={props.login}>Sign In</Link></li>}
        
               
             </ul>
@@ -65,4 +64,3 @@ const Navbar=(props)=> {
         )
     }
 export default Navbar;
-

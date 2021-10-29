@@ -1,3 +1,4 @@
+
 import React,{useState, useEffect} from "react";
 import { removeUserSession, getUser,getToken,getMobile,getAddress,getId,getRoles} from "../utils/Common";
 import axios from "axios";
@@ -6,6 +7,7 @@ import PostCard from "./PostCard";
 import NgoDashboard from "./NgoDashboard"
 import UserDashboard from "./UserDashboard";
 import AdminDashboard from "./AdminDashboard";
+import { Link } from "react-router-dom";
 
 const Dashboard = (props) =>{
     const userId = "61645060df0bbf0532923f23"
@@ -20,26 +22,28 @@ const Dashboard = (props) =>{
     // const accessToken = getToken();
     const id = getId();
     const roles = getRoles();
+   // const user1 = getUserNewTab();
    
     
     
    
-    const apiUrl = "http://capstoneeee.herokuapp.com/api";
+    const apiUrl = "https://capstoneeee.herokuapp.com/api";
     const handleLogout =( ) =>{
+      props.history.push("/signin")
         removeUserSession();
-        props.history.push("/signin")
+        //props.history.push("/signin")
     }
     useEffect(() => {
         async function fetchData() {
           
             try {
-                const requestUrl = 'http://capstoneeee.herokuapp.com/api/user/' + id;
+                const requestUrl = 'https://capstoneeee.herokuapp.com/api/user/' + id;
                 const res = await fetch(requestUrl);
                 const resJson = await res.json();
                 setRole(resJson.data.roles[0]);
             } catch (err) {
-                alert(JSON.stringify(err));
-                alert(err);
+               // alert(JSON.stringify(err));
+                console.log(err);
             }
         }
         fetchData();
@@ -60,13 +64,14 @@ const Dashboard = (props) =>{
 //    }, [])
 
     return (
-      <div className="container-fluid" >
+      <div>
+     {user!= null? ( <div className="container-fluid" >
         <h1 style={{textAlign:"center" }}>welcome {user}!</h1>
        
 
         <div className="container-fluid">
           <div class="row"></div>
-          {role == userId ? (
+          {role === userId ? (
             <UserDashboard />
           ) : role === adminId ? (
             <AdminDashboard/>
@@ -81,6 +86,7 @@ const Dashboard = (props) =>{
         >
           Log out
         </button>
+      </div>):(<div><h1>Kindly login to see your account <Link to ="/signin">Go to Login page</Link></h1></div>) }
       </div>
     );
 }

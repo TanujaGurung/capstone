@@ -1,64 +1,30 @@
 import React, { Component } from "react";
 // import axios from 'axios';
-import {
-  // removeUserSession,
-  // getUser,
-  // getToken,
-  getMobile,
-  getAddress,
-  getId,
-} from "../utils/Common";
-import { Form, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { getRoles, getId, getUser, removeUserSession } from "../utils/Common";
+import UserNavbar from "./UserNavbar";
+import NgoNavbar from "./NgoNavbar";
 
-export default class Upload extends Component {
+
+export default class ClassNavbar extends Component {
   constructor(props) {
     super(props);
     // const user = getUser();
-    const mobile = getMobile();
-    const address = getAddress();
+    
     const id = getId();
 
     this.state = {
-      title: "",
-      img: "",
-      description: "",
-      phone: mobile,
-      address: address,
+     
+     user : {},
       id: id,
     };
-    this.ChangeHandler = this.ChangeHandler.bind(this);
-    this.SubmitHandler = this.SubmitHandler.bind(this);
+    // this.ChangeHandler = this.ChangeHandler.bind(this);
+    // this.SubmitHandler = this.SubmitHandler.bind(this);
   }
-  ChangeHandler = (e) => {
-    e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-  SubmitHandler = (e) => {
-    const feed = {
-      title: this.state.title,
-      description: this.state.description,
-      address: this.state.address,
-      phone: this.state.phone,
-      img: this.state.img,
-    };
-    const posts = {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(feed),
-    };
-    if (this.state.title && this.state.img && this.state.description) {
-      const apiUrl =
-        "https://capstoneeee.herokuapp.com/api/DonationPost/" + this.state.id;
-      fetch(apiUrl, posts).then((res) => {
-        //console.log(res);
-        alert("Thanks for your contribution");
-      });
-    }
-  };
+  componentDidMount() {
+      this.setState(user => this.state.getUser())
+  }
 
   render() {
     return (

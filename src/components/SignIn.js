@@ -1,40 +1,68 @@
+
 import React ,{useState,useEffect}  from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory,Redirect} from "react-router-dom";
 import {setUserSession} from "../utils/Common"
+//import { Route,Redirect } from "react-router";
+//import useForceUpdate from 'use-force-update';
+
 
 
 import axios from "axios";
 
 import  "./styles.css";
+//const forceUpdate = useForceUpdate();
+
+function useForceUpdate(){
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => value + 1); // update the state to force render
+}
 
 const SignIn =(props) =>{
+  
+  const forceUpdate = useForceUpdate();
     const [user , setUser] = useState('');
     const [pswd , setPswd] =useState('');
     const [err, setErr] = useState(null);
     //const [loading , setLoading]= useState(false);
-
+  //   const logout = () => {
+  //     // setIsLogged(false);
+  //     setLoggedIn(!loggedIn);
+  //    return removeUserSession();
+      
+  //  }
+    let history = useHistory();
   const handleLogin =( ) =>{
      // props.history.push("/")
+    //  const forceUpdate = useForceUpdate();
+
      setErr(null);
    //  setLoading(true);
-     axios.post("http://capstoneeee.herokuapp.com/api/auth/signin", {email: user, password : pswd})
+     axios.post("https://capstoneeee.herokuapp.com/api/auth/signin", {email: user, password : pswd})
         .then(res =>{
           // setLoading(false);
-           setUserSession(res.data.accessToken, res.data.username, res.data.address,res.data.mobile, res.data.id,res.data.roles[0])
-           props.history.push('/dashboard')
+           setUserSession(res.data.accessToken, res.data.username, res.data.address,res.data.mobile, res.data.id,res.data.roles[0],res.data.email)
+          // if(res.status === 200 || res.status === 201 || res.status === 204)
+        
+          history.push('/dashboard')
+          window.location.reload()
             //alert(res.data.username)
+           // console.log(res)
+            //console.log(props);
+            
         }).catch(err =>{
            // setLoading(false);
             //setErr(err.message)
-            if(err.response.status === 401 || err.response.status === 400){
-              setErr(err.response.data.message);}
-                else {
+            //if(err.response.status === 401 || err.response.status === 400){
+             // setErr(err.response.data.message);}
+              //  else {
+               console.log(err)
                     setErr("user or password is wrong..kindly try again..")
-                 }
+              //   }
             
             //console.log(err)
           //alert(err)
         })
+        forceUpdate();
  
     }    
  
@@ -67,4 +95,5 @@ const SignIn =(props) =>{
     </React.Fragment>
     )
 }
+
 export default SignIn;

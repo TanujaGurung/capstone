@@ -9,7 +9,10 @@ const Footer =() =>{
         <div class="copyrights" style={{marginTop: '3rem'}}>
             <p>Hopes © 2016, All Rights Reserved
                 <br></br>
-                <span>Web Design By: Tanuja</span> </p>
+                <span>Web Design and Implemented By: </span>
+                 </p>
+                 <p>Tanuja & Winod</p>
+                 
             <p><Link to = "/"> Hopes </Link></p>
         </div>
 </footer>

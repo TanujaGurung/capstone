@@ -1,6 +1,11 @@
+
 import React,{useState,useEffect} from "react";
-import {  Card ,ListGroup} from 'react-bootstrap';
-import {Link} from "react-router-dom";
+import {
+  Card,
+  // ListGroup
+} from 'react-bootstrap';
+import  "./styles.css"
+// import {Link} from "react-router-dom";
 import { getId } from "../utils/Common";
 
 const PostCard=(props) =>{
@@ -23,7 +28,7 @@ const PostCard=(props) =>{
       
       }  
       if(id !== null){
-        const  apiUrl = " http://capstoneeee.herokuapp.com/api/addCart/" + Ngo_id;
+        const  apiUrl = " https://capstoneeee.herokuapp.com/api/addCart/" + Ngo_id;
         fetch(apiUrl, posts)
         .then(res => {
           console.log(res);
@@ -43,28 +48,28 @@ const PostCard=(props) =>{
     async function fetchData() {
       
         try {
-            const requestUrl = 'http://capstoneeee.herokuapp.com/api/user/' + postedBy;
+            const requestUrl = 'https://capstoneeee.herokuapp.com/api/user/' + postedBy;
             const res = await fetch(requestUrl);
             const resJson = await res.json();
             setUser(resJson.data.username);
         } catch (err) {
-            alert(JSON.stringify(err));
-            alert(err);
+           // alert(JSON.stringify(err));
+           // alert(err);
         }
     }
     fetchData();
 }, []);
     return(
         <div>
-        <Card style={{ width: '95%',height : "500px" }}>
+        <Card className="card card-1" >
   <Card.Body>
-  <Card.Img variant="top" src={img} alt ="myimg" style={{ width: '100%', height : "300px" }}/>
-    <Card.Title>{title}</Card.Title>
+  <Card.Img variant="top" src={img} alt ="myimg" style={{ width: '100%', height : "250px" }}/>
+    <Card.Title style={{fontWeight :"bolder"}}>{title}</Card.Title>
     
     <Card.Text style={{ width: '95%', whiteSpace :"nowrap",
       overflow: 'hidden',
       textOverflow: 'ellipsis'}}>
-      description :{description}
+     description :{description} 
     </Card.Text>
     <Card.Text>
     postedBy : {user}

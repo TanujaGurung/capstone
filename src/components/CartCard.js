@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getId } from "../utils/Common";
@@ -10,14 +11,14 @@ export default function Cartcard(props) {
     async function fetchCart() {
       try {
         const requestUrl =
-          "http://capstoneeee.herokuapp.com/api/Cart/" + Ngo_id;
+          "https://capstoneeee.herokuapp.com/api/Cart/" + Ngo_id;
         const res = await fetch(requestUrl);
         const resJson = await res.json();
         setCart(resJson.data.cart);
         console.table(cart);
       } catch (err) {
-        alert(JSON.stringify(err));
-        alert(err);
+        console.log(JSON.stringify(err));
+      //  alert(err);
       }
     }
 
@@ -31,7 +32,7 @@ export default function Cartcard(props) {
     console.log(id);
     try {
       const res = await fetch(
-        "http://capstoneeee.herokuapp.com/api/removeCart/" + Ngo_id,
+        "https://capstoneeee.herokuapp.com/api/removeCart/" + Ngo_id,
         {
           method: "put",
           headers: {
@@ -52,7 +53,7 @@ export default function Cartcard(props) {
   async function handleOrder() {
     try {
       const res = await fetch(
-        "http://capstoneeee.herokuapp.com/api/order/" + Ngo_id,
+        "https://capstoneeee.herokuapp.com/api/order/" + Ngo_id,
         {
           method: "post",
           headers: {
@@ -78,7 +79,7 @@ export default function Cartcard(props) {
               <div class="col-md-1 order-md-1"></div>
               <div class="col-md-4 order-md-1">
                 <img
-                  class="img-responsive"
+                  className="img-responsive"
                   src={item.img}
                   alt=""
                   style={({ width: "150px" }, { height: "150px" })}
@@ -122,3 +123,4 @@ export default function Cartcard(props) {
     </div>
   );
 }
+

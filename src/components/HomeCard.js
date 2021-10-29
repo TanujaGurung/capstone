@@ -1,3 +1,4 @@
+
 import React from "react";
 import {Link} from "react-router-dom"
 import {  Card} from 'react-bootstrap';
@@ -21,7 +22,7 @@ const HomeCard =(props)=>{
           <Card.Img variant="top" src={img} />
           <Card.Body>
           <Card.Title><br></br></Card.Title>
-            <Card.Text >
+            <Card.Text className ="text-justify" >
               {para}
             </Card.Text>
           </Card.Body>
@@ -33,4 +34,6 @@ const HomeCard =(props)=>{
       
       )
 }
+
+
 export default HomeCard;

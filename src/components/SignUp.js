@@ -1,10 +1,12 @@
+
 import React, {useState} from "react";
-import { setUserSession } from "../utils/Common";
+// import { setUserSession } from "../utils/Common";
 import axios from "axios";
 
 const SignUp = (props) => {
     const [userRegistration, setUserRegistraion] = useState({
       username: "",
+      password:"",
       email: "",
       mobile: "",
       address: "",
@@ -12,25 +14,37 @@ const SignUp = (props) => {
       state: "",
       country: "",
       pincode: "",
-      role: "ROLE_USER"
+      role:"",
     });
+
     const [err ,setErr] = useState("")
     const handleInput = (e) => {
+      e.preventDefault();
       const name = e.target.name;
       const value = e.target.value;
      // console.log({name, value})
       userRegistration[name] = value;
       setUserRegistraion({ ...userRegistration });
+    //  alert(userRegistration.roles[0])
     };
+    const feeds={
+      ...userRegistration,
+      roles : [userRegistration.role]
+    }
+    console.log(feeds);
   
     const handleSubmit = () => {
      // console.log(userRegistration);
       //alert(userRegistration.username)
-      axios.post("http://capstoneeee.herokuapp.com/api/auth/signup", userRegistration)
+      // const feeds={
+      //   ...userRegistration,
+      //   roles : [userRegistration.role]
+      // }
+      axios.post("https://capstoneeee.herokuapp.com/api/auth/signup", feeds)
       .then(res =>{
-           alert(res);
+           alert("succesfully registered");
         // setUserSession(res.data.token, res.data.username)
-         props.history.push('/redirect')
+         props.history.push('/signin')
           //alert(res.data.username)
       }).catch(err =>{
           
@@ -183,9 +197,9 @@ const SignUp = (props) => {
                   <label class="radio-inline">
                     <input
                       type="radio"
-                      checked
+                      
                       name="role"
-                      value={userRegistration.roles}
+                      value="user"
                       onChange={handleInput}
                     />
                     Individual
@@ -194,7 +208,7 @@ const SignUp = (props) => {
                     <input
                       type="radio"
                       name="role"
-                      value={userRegistration.roles}
+                      value="ngo"
                       onChange={handleInput}
                     />
                     Organisation
@@ -217,4 +231,6 @@ const SignUp = (props) => {
     );
   };
   export default SignUp;
+
+
   
