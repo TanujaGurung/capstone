@@ -11,7 +11,7 @@ const Footer =() =>{
                 <br></br>
                 <span>Web Design and Implemented By: </span>
                  </p>
-                 <p>Tanuja & Winod</p>
+                 <p>Tanuja & Vinod</p>
                  
             <p><Link to = "/"> Hopes </Link></p>
         </div>
