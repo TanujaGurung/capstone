@@ -19,7 +19,7 @@ const HomeCard =(props)=>{
           <Card.Title>{title}</Card.Title>
           
           <Card >
-          <Card.Img variant="top" src={img} />
+          <Card.Img variant="top" src={img} style={{width: '100%'}} />
           <Card.Body>
           <Card.Title><br></br></Card.Title>
             <Card.Text className ="text-justify" >

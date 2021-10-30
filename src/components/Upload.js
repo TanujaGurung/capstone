@@ -63,6 +63,9 @@ export default class Upload extends Component {
   render() {
     return (
       <React.Fragment>
+      <div className="container">
+      <h2  style={{textAlign: 'center', color:"blue" }}> Donation Form</h2>
+      <div className ="card">
         <Form>
           <Form.Group className="mb-3" onSubmit={this.SubmitHandler}>
             <Form.Label>Title</Form.Label>
@@ -103,6 +106,8 @@ export default class Upload extends Component {
             Submit
           </Button>
         </Form>
+        </div>
+        </div>
       </React.Fragment>
     );
   }
